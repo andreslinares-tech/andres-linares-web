@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnóstico agendado — Andrés Linares</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;1,7..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080C14;
+  --surface:#111826;
+  --surface-2:#16202F;
+  --line:#232F42;
+  --line-soft:#1A2434;
+  --text:#E9EEF6;
+  --text-2:#A9B7CA;
+  --dim:#748699;
+  --accent:#FF6A1A;
+  --accent-2:#FFA23A;
+  --ok:#35C48A;
+  --max:760px;
+  --gut:clamp(20px,5vw,56px);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-size:16.5px;line-height:1.62;
+  -webkit-font-smoothing:antialiased}
+h1,h2{font-weight:600;letter-spacing:-.03em;line-height:1.1;margin:0}
+h1{font-size:clamp(1.9rem,4.6vw,2.7rem);letter-spacing:-.038em}
+p{margin:0 0 1.05em}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+
+.nav{padding-block:20px}
+.nav .wrap{display:flex;align-items:center;gap:11px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:-.03em;font-size:1.02rem}
+.brand i{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-style:normal;
+  background:linear-gradient(150deg,var(--accent),#C2410C);color:#fff;font-size:.86rem;font-weight:700}
+.brand em{font-style:normal;color:var(--dim);font-weight:400;font-size:.9rem}
+
+.hero{padding-block:clamp(30px,5vw,54px) 6px;text-align:center;
+  background:radial-gradient(ellipse 60% 44% at 50% -4%,rgba(53,196,138,.20),transparent 62%)}
+.check{width:56px;height:56px;border-radius:50%;margin:0 auto 22px;
+  background:rgba(53,196,138,.14);border:1px solid rgba(53,196,138,.4);
+  display:grid;place-items:center}
+.check svg{width:26px;height:26px;stroke:var(--ok);fill:none;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round}
+.hero p.lede{color:var(--text-2);max-width:46ch;margin:1.1rem auto 0;font-size:1.02rem}
+.hero .who{color:var(--dim);font-size:.92rem;margin-top:.6rem}
+
+.card{border:1px solid var(--line);border-radius:16px;background:var(--surface);
+  padding:clamp(22px,3.5vw,32px);margin-top:clamp(28px,4vw,40px)}
+.card h2{font-size:1.15rem;margin-bottom:1.1rem}
+.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:2px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:14px;
+  padding:13px 0;border-top:1px solid var(--line-soft);color:var(--text-2);font-size:.96rem}
+.steps li:first-child{border-top:0}
+.steps li::before{content:counter(s);color:var(--accent);font-weight:600;font-size:.94rem}
+.steps li b{color:var(--text);font-weight:600}
+
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(26px,4vw,36px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:600;font-size:.96rem;text-decoration:none;padding:13px 22px;border-radius:9px;
+  background:var(--accent);color:#fff;border:1px solid transparent;flex:1;min-width:220px;
+  box-shadow:0 8px 26px -10px rgba(255,106,26,.85);transition:background .16s,box-shadow .16s}
+.btn:hover{background:#FF7C33;box-shadow:0 10px 30px -10px rgba(255,106,26,1)}
+.btn.ghost{background:transparent;border-color:var(--line);color:var(--text);box-shadow:none}
+.btn.ghost:hover{border-color:var(--dim);background:var(--surface-2)}
+.btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+
+.note{margin-top:clamp(30px,4vw,40px);color:var(--dim);font-size:.9rem;text-align:center;
+  border-top:1px solid var(--line-soft);padding-top:20px}
+.note a{color:var(--accent-2);text-decoration:none}
+.note a:hover{text-decoration:underline}
+
+footer{padding-block:26px;color:var(--dim);font-size:.86rem;text-align:center}
+
+@media(max-width:520px){.actions{flex-direction:column}.btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand"><i>AL</i>Andrés Linares <em>· sistemas comerciales</em></span>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="check">
+      <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>
+    </div>
+    <h1>Quedó agendado</h1>
+    <p class="lede">Te llega la confirmación con el link de la videollamada a tu correo. Si no aparece en unos minutos, revisá spam.</p>
+    <p class="who" id="who"></p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="card">
+    <h2>Qué va a pasar en la llamada</h2>
+    <ol class="steps">
+      <li><span><b>Treinta minutos</b>, por videollamada. Nada de formularios previos.</span></li>
+      <li><span>Miramos tu proceso actual y ubicamos <b>en qué punto exacto</b> se caen las oportunidades.</span></li>
+      <li><span>Te digo qué conviene automatizar y qué no. <b>Automatizar de más también rompe cosas.</b></span></li>
+      <li><span>Si tiene sentido trabajar juntos, te lo propongo. Si no, <b>te llevás el diagnóstico igual.</b></span></li>
+    </ol>
+  </div>
+
+  <div class="actions">
+    <a class="btn" href="#" data-ph="instagram" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      Seguime en Instagram
+    </a>
+    <a class="btn ghost" href="#" data-ph="youtube" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M22 12s0-3.6-.5-5.3c-.3-1-1-1.8-2-2C17.7 4 12 4 12 4s-5.7 0-7.5.7c-1 .2-1.7 1-2 2C2 8.4 2 12 2 12s0 3.6.5 5.3c.3 1 1 1.7 2 2C6.3 20 12 20 12 20s5.7 0 7.5-.7c1-.3 1.7-1 2-2 .5-1.7.5-5.3.5-5.3Z"/><path d="M10 9.5v5l4.5-2.5Z"/></svg>
+      Mirá cómo funciona un sistema real
+    </a>
+  </div>
+
+  <p class="note">
+    Mientras esperás la llamada, mirá <a href="index.html#prueba">un sistema funcionando por dentro</a> —
+    así llegás con contexto de lo que se puede armar.
+  </p>
+</div>
+
+<footer>© <span id="y">2026</span> Andrés Linares</footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+try{
+  const p = new URLSearchParams(location.search);
+  const nombre = p.get('first_name') || p.get('name') || p.get('contact_name');
+  if(nombre) document.getElementById('who').textContent = 'Gracias, ' + nombre + '.';
+}catch(e){}
+</script>
+</body>
+</html>
