@@ -166,6 +166,11 @@ section{padding-block:clamp(60px,8vw,116px);position:relative;scroll-margin-top:
 .case-h p{color:var(--text-2);margin:.7rem 0 0;max-width:62ch;font-size:.99rem}
 .case-b{padding:clamp(18px,2.5vw,26px)}
 .media{border-radius:11px;overflow:hidden;border:1px solid var(--line-soft);background:var(--bg)}
+.zoom{display:block;position:relative}
+.zoom .tap{position:absolute;right:10px;bottom:10px;background:rgba(8,12,20,.8);color:var(--text);
+  font-family:Archivo;font-size:.78rem;padding:6px 11px;border-radius:7px;border:1px solid var(--line);
+  display:none;align-items:center;gap:5px;pointer-events:none}
+@media(max-width:760px){.zoom .tap{display:inline-flex}}
 .media .r16{position:relative;padding-top:56.25%}
 .media .r16 > iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .media .r16 > .slot{position:absolute;inset:0;aspect-ratio:auto}
@@ -324,7 +329,8 @@ section{padding-block:clamp(60px,8vw,116px);position:relative;scroll-margin-top:
 .dash-h .ej{font-size:.76rem;color:var(--accent-2);border:1px solid rgba(255,162,58,.4);
   border-radius:6px;padding:3px 9px;background:rgba(255,162,58,.09)}
 .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-soft)}
-@media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}
+  .kpi:nth-child(5){grid-column:span 2}}
 .kpi{background:var(--bg);padding:18px 16px}
 .kpi .k{color:var(--dim);font-size:.83rem}
 .kpi .v{font-size:clamp(1.3rem,2.4vw,1.75rem);font-weight:700;letter-spacing:-.04em;
@@ -595,8 +601,11 @@ footer a:hover{color:var(--accent-2)}
         <p class="verdict">El anuncio A trae más del doble de contactos por menos de la mitad de plata. Mirando el costo por lead, gana por goleada. <b>Y no produjo un solo calificado.</b> El B, más caro y con menos volumen, es el único de los dos que generó reuniones. Sin un tablero que conecte la inversión con lo que pasa después, esa decisión se toma a ciegas todos los meses.</p>
         <div class="media" style="margin-top:1.6rem">
           <!-- IMAGEN 2 · sección de anuncios del tablero -->
-          <img src="assets/panel-anuncios.png" alt="Rendimiento por anuncio en el tablero: inversión, leads, calificados, agendas y reservas"
-               onerror="this.outerHTML='&lt;div class=&quot;slot&quot;&gt;&lt;b&gt;Tablero · rendimiento por anuncio&lt;/b&gt;&lt;span&gt;Sección de anuncios, sin la columna de nombres&lt;/span&gt;&lt;code&gt;assets/panel-anuncios.png&lt;/code&gt;&lt;/div&gt;'">
+          <a class="zoom" href="assets/panel-anuncios.png" target="_blank" rel="noopener">
+            <img src="assets/panel-anuncios.png" alt="Rendimiento por anuncio en el tablero: inversión, leads, calificados, agendas y reservas"
+                 onerror="this.outerHTML='&lt;div class=&quot;slot&quot;&gt;&lt;b&gt;Tablero · rendimiento por anuncio&lt;/b&gt;&lt;span&gt;Sección de anuncios, sin la columna de nombres&lt;/span&gt;&lt;code&gt;assets/panel-anuncios.png&lt;/code&gt;&lt;/div&gt;'">
+            <span class="tap">🔍 Ampliar</span>
+          </a>
         </div>
 
         <p style="color:var(--text-2);margin:2rem 0 0;max-width:60ch">Así lo ve el cliente todos los días, dentro de su propio CRM:</p>
@@ -604,8 +613,11 @@ footer a:hover{color:var(--accent-2)}
           <div class="lid">
             <div class="cam"></div>
             <div class="viewport">
-              <img src="assets/panel-metricas.png" alt="Tablero comercial: inversión, leads, calificados, agendas y costo por lead calificado"
-                   onerror="this.outerHTML='&lt;div class=&quot;slot&quot;&gt;&lt;b&gt;Tablero de métricas&lt;/b&gt;&lt;span&gt;Banda de KPIs: inversión · leads · calificados · agendas · costo por calificado&lt;/span&gt;&lt;code&gt;assets/panel-metricas.png&lt;/code&gt;&lt;/div&gt;'">
+              <a class="zoom" href="assets/panel-metricas.png" target="_blank" rel="noopener">
+                <img src="assets/panel-metricas.png" alt="Tablero comercial: inversión, leads, calificados, agendas y costo por lead calificado"
+                     onerror="this.outerHTML='&lt;div class=&quot;slot&quot;&gt;&lt;b&gt;Tablero de métricas&lt;/b&gt;&lt;span&gt;Banda de KPIs: inversión · leads · calificados · agendas · costo por calificado&lt;/span&gt;&lt;code&gt;assets/panel-metricas.png&lt;/code&gt;&lt;/div&gt;'">
+                <span class="tap">🔍 Ampliar</span>
+              </a>
             </div>
           </div>
           <div class="base"></div>
@@ -623,13 +635,19 @@ footer a:hover{color:var(--accent-2)}
         <div class="vs">
           <div class="media">
             <!-- IMAGEN 3 · pipeline del CRM (sin nombres de contactos) -->
-            <img src="assets/crm-pipeline.png" alt="Pipeline comercial configurado en el CRM"
-                 onerror="this.outerHTML='&lt;div class=&quot;slot&quot;&gt;&lt;b&gt;Pipeline del CRM&lt;/b&gt;&lt;span&gt;Etapas configuradas, sin nombres de contactos&lt;/span&gt;&lt;code&gt;assets/crm-pipeline.png&lt;/code&gt;&lt;/div&gt;'">
+            <a class="zoom" href="assets/crm-pipeline.png" target="_blank" rel="noopener">
+              <img src="assets/crm-pipeline.png" alt="Pipeline comercial configurado en el CRM"
+                   onerror="this.outerHTML='&lt;div class=&quot;slot&quot;&gt;&lt;b&gt;Pipeline del CRM&lt;/b&gt;&lt;span&gt;Etapas configuradas, sin nombres de contactos&lt;/span&gt;&lt;code&gt;assets/crm-pipeline.png&lt;/code&gt;&lt;/div&gt;'">
+              <span class="tap">🔍 Ampliar</span>
+            </a>
           </div>
           <div class="media">
             <!-- IMAGEN 4 · workflows / configuración del agente -->
-            <img src="assets/crm-workflows.png" alt="Automatizaciones configuradas en el CRM"
-                 onerror="this.outerHTML='&lt;div class=&quot;slot&quot;&gt;&lt;b&gt;Automatizaciones&lt;/b&gt;&lt;span&gt;Vista de configuración, sin datos de clientes&lt;/span&gt;&lt;code&gt;assets/crm-workflows.png&lt;/code&gt;&lt;/div&gt;'">
+            <a class="zoom" href="assets/crm-workflows.png" target="_blank" rel="noopener">
+              <img src="assets/crm-workflows.png" alt="Automatizaciones configuradas en el CRM"
+                   onerror="this.outerHTML='&lt;div class=&quot;slot&quot;&gt;&lt;b&gt;Automatizaciones&lt;/b&gt;&lt;span&gt;Vista de configuración, sin datos de clientes&lt;/span&gt;&lt;code&gt;assets/crm-workflows.png&lt;/code&gt;&lt;/div&gt;'">
+              <span class="tap">🔍 Ampliar</span>
+            </a>
           </div>
         </div>
       </div>
@@ -892,7 +910,9 @@ const pintar=rg=>{
   const d=DATA[rg];
   document.querySelectorAll('#dash .kpi').forEach((k,i)=>{
     const c=d.kpi[i], v=k.querySelector('.v'), s=k.querySelector('.d');
-    contar(v,c.v,c.pre); s.textContent=c.d; s.className='d '+(c.up?'up':'down');
+    setTimeout(()=>{
+      contar(v,c.v,c.pre); s.textContent=c.d; s.className='d '+(c.up?'up':'down');
+    }, CALM?0:i*130);
   });
   const max=Math.max(...d.rows.map(r=>r[1]));
   const plot=document.getElementById('plot');
@@ -909,15 +929,17 @@ const pintar=rg=>{
   });
 };
 
+let rangoActivo='7';
 document.querySelectorAll('.tabs [data-rg]').forEach(b=>{
   b.addEventListener('click',()=>{
     document.querySelectorAll('.tabs [data-rg]').forEach(x=>x.setAttribute('aria-selected','false'));
     b.setAttribute('aria-selected','true');
-    pintar(b.dataset.rg);
+    rangoActivo=b.dataset.rg;
+    pintar(rangoActivo);
   });
 });
-new IntersectionObserver((e,o)=>{
-  if(e[0].isIntersecting){ pintar('7'); o.disconnect(); }
+new IntersectionObserver(e=>{
+  if(e[0].isIntersecting) pintar(rangoActivo);
 },{threshold:.3}).observe(document.getElementById('dash'));
 
 /* ───────── barra fija de móvil ─────────
