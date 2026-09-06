@@ -374,6 +374,21 @@ footer{background:var(--bg);border-top:1px solid var(--line-soft);padding-block:
 footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
 footer a{color:var(--text-2);text-decoration:none}
 footer a:hover{color:var(--accent-2)}
+/* ── demos: interactivo en web, video-loop en móvil ─
+   en celular, algunos navegadores (webviews de apps) no
+   sostienen bien el JS en vivo; se reemplaza por un
+   video mudo en loop que muestra el mismo recorrido. */
+.only-mobile{display:none}
+@media(max-width:760px){
+  .only-desktop{display:none!important}
+  .only-mobile{display:block}
+}
+.loop-box{border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;background:var(--bg);position:relative}
+.loop-box video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.loop-box.lb-hero{padding-top:309.6%}
+.loop-box.lb-dash{padding-top:262.7%}
+.loop-note{color:var(--dim);font-size:.86rem;margin-top:12px}
+
 /* ── barra fija de móvil ───────────────────── */
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;
   padding:11px 16px calc(11px + env(safe-area-inset-bottom));
@@ -419,13 +434,18 @@ footer a:hover{color:var(--accent-2)}
           <b>Un lead entra a las once de la noche</b>
           <span>Esto pasa sin que nadie del equipo esté conectado. Corre solo.</span>
         </div>
-        <div class="tabs" role="tablist" aria-label="Canal">
+        <div class="tabs only-desktop" role="tablist" aria-label="Canal">
           <button role="tab" data-ch="wa" aria-selected="true"><span class="dot"></span>WhatsApp</button>
           <button role="tab" data-ch="ig" aria-selected="false"><span class="dot"></span>Instagram</button>
         </div>
       </div>
 
-      <div class="demo-grid">
+      <div class="only-mobile loop-box lb-hero">
+        <video src="assets/hero-demo-mobile.mp4" autoplay loop muted playsinline preload="none" title="Conversación de ejemplo por WhatsApp"></video>
+      </div>
+      <p class="only-mobile loop-note">Conversación de ejemplo. El sistema real usa tu tono, tus preguntas y tu calendario.</p>
+
+      <div class="demo-grid only-desktop">
         <div class="phone" id="phone">
           <div class="ph-bar">
             <span class="av" id="chAv">LM</span>
@@ -458,7 +478,7 @@ footer a:hover{color:var(--accent-2)}
         </div>
       </div>
 
-      <div class="replay">
+      <div class="replay only-desktop">
         <button id="replay" type="button">Ver de nuevo</button>
         <span>Conversación de ejemplo. El sistema real usa tu tono, tus preguntas y tu calendario.</span>
       </div>
@@ -557,7 +577,12 @@ footer a:hover{color:var(--accent-2)}
         <p>Dos anuncios de la misma cuenta, corriendo al mismo tiempo. Mirando solamente cuántos contactos trae cada uno y cuánto cuesta, la decisión parece obvia.</p>
       </div>
       <div class="case-b">
-        <div class="dash" id="dash">
+        <div class="only-mobile loop-box lb-dash">
+          <video src="assets/dash-demo-mobile.mp4" autoplay loop muted playsinline preload="none" title="Tablero comercial: 7 días vs 30 días"></video>
+        </div>
+        <p class="only-mobile loop-note">Tablero de ejemplo cambiando entre 7 y 30 días.</p>
+
+        <div class="dash only-desktop" id="dash">
           <div class="dash-h">
             <b>Tablero comercial</b>
             <div class="tabs" role="tablist" aria-label="Rango">
