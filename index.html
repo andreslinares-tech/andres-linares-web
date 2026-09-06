@@ -387,7 +387,6 @@ footer a:hover{color:var(--accent-2)}
 }
 .loop-box{border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;background:var(--bg);position:relative}
 .loop-box video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.loop-box.lb-hero{padding-top:309.6%}
 .loop-box.lb-dash{padding-top:262.7%}
 .loop-note{color:var(--dim);font-size:.86rem;margin-top:12px}
 
@@ -436,18 +435,13 @@ footer a:hover{color:var(--accent-2)}
           <b>Un lead entra a las once de la noche</b>
           <span>Esto pasa sin que nadie del equipo esté conectado. Corre solo.</span>
         </div>
-        <div class="tabs only-desktop" role="tablist" aria-label="Canal">
+        <div class="tabs" role="tablist" aria-label="Canal">
           <button role="tab" data-ch="wa" aria-selected="true"><span class="dot"></span>WhatsApp</button>
           <button role="tab" data-ch="ig" aria-selected="false"><span class="dot"></span>Instagram</button>
         </div>
       </div>
 
-      <div class="only-mobile loop-box lb-hero">
-        <video src="assets/hero-demo-mobile.mp4" autoplay loop muted playsinline preload="none" title="Conversación de ejemplo por WhatsApp"></video>
-      </div>
-      <p class="only-mobile loop-note">Conversación de ejemplo. El sistema real usa tu tono, tus preguntas y tu calendario.</p>
-
-      <div class="demo-grid only-desktop">
+      <div class="demo-grid">
         <div class="phone" id="phone">
           <div class="ph-bar">
             <span class="av" id="chAv">LM</span>
@@ -480,7 +474,7 @@ footer a:hover{color:var(--accent-2)}
         </div>
       </div>
 
-      <div class="replay only-desktop">
+      <div class="replay">
         <button id="replay" type="button">Ver de nuevo</button>
         <span>Conversación de ejemplo. El sistema real usa tu tono, tus preguntas y tu calendario.</span>
       </div>
